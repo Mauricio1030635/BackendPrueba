@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SittyCia.Core.Dto;
 using SittyCia.Core.Models;
@@ -9,6 +11,7 @@ namespace SittyCia.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;
@@ -29,6 +32,7 @@ namespace SittyCia.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> GetTaskById(int id)
         {
             var task = await _taskService.GetByIdAsync(id);

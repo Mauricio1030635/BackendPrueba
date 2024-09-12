@@ -34,20 +34,30 @@ namespace SittyCia.Extensions
 
 
             var secretKey = configuration.GetSection("SettingsApi:JwtOptions").GetValue<string>("Secret");
+            var ValidIssuer = configuration.GetSection("SettingsApi:JwtOptions").GetValue<string>("Issuer");
+            var Audience = configuration.GetSection("SettingsApi:JwtOptions").GetValue<string>("Audience");
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-             .AddJwtBearer(options =>
-             {
-                 options.TokenValidationParameters = new TokenValidationParameters
-                 {
-                     ValidateIssuerSigningKey = true,
-                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secretKey)),
-                     ValidateIssuer = false,
-                     ValidateAudience = false,
-                     ValidateLifetime = true,
-                     ClockSkew = TimeSpan.Zero
-                 };
-             });
+           
+
+
+                services.AddAuthentication(options =>
+                {
+                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(options =>
+                {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuerSigningKey = true,
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey)),
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidIssuer = ValidIssuer,
+                    ValidAudience = Audience
+                };
+                });
+
 
 
             services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
