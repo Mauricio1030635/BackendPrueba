@@ -1,6 +1,6 @@
-﻿using SittyCia.Models.Dto;
+﻿using SittyCia.Core.Dto;
 
-namespace SittyCia.Service.IService
+namespace SittyCia.Core.Repository
 {
     public interface IAuthService
     {

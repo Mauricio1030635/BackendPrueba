@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using SittyCia.Models;
-using SittyCia.Models.Dto;
+using SittyCia.Core.Dto;
+using SittyCia.Core.Models;
+
 
 namespace SittyCia.Extensions
 {

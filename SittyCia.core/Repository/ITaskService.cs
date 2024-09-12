@@ -1,6 +1,6 @@
-﻿using SittyCia.Models;
+﻿using SittyCia.Core.Models;
 
-namespace SittyCia.Service.IService
+namespace SittyCia.Core.Repository
 {
     public interface ITaskService : IGenericService<TaskEntity>
     {

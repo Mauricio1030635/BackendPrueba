@@ -1,6 +1,6 @@
-﻿namespace SittyCia.Models.Dto
+﻿namespace SittyCia.Core.Dto
 {
-    public class TaskDto
+    public class UpdateTaskDto
     {
         public int Id { get; set; }
         public string Name { get; set; }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
-using SittyCia.Models;
-using SittyCia.Service.IService;
+using SittyCia.Core.Models;
+using SittyCia.Core.Repository;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;

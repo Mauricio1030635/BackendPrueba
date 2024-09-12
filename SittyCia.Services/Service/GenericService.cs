@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SittyCia.Core.Repository;
 using SittyCia.Data;
-using SittyCia.Service.IService;
+
 
 namespace SittyCia.Service
 {

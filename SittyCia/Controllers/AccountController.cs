@@ -1,14 +1,14 @@
-﻿using Azure;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Configuration;
-using SittyCia.Models.Dto;
-using SittyCia.Service.IService;
+using SittyCia.Core.Dto;
+using SittyCia.Core.Repository;
+
 
 namespace SittyCia.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class AccountController : ControllerBase
     {
         private readonly IAuthService _authService;        

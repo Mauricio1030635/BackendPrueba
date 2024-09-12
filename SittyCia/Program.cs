@@ -1,10 +1,5 @@
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SittyCia.Data;
-using SittyCia.Models;
-using SittyCia.Service.IService;
-using SittyCia.Service;
-using Microsoft.OpenApi.Models;
 using SittyCia.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 
 builder.Services.RegisterBackgroundTask(builder.Configuration);
-
-
 builder.Services.SwaggerExtension();
 
 

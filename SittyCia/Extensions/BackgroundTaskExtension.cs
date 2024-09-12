@@ -1,13 +1,13 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using SittyCia.Data;
-using SittyCia.Models;
-using SittyCia.Service.IService;
-using SittyCia.Service;
 using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using SittyCia.Data;
+using SittyCia.Core.Models;
+using SittyCia.Core.Repository;
+using SittyCia.Service;
 
 
 namespace SittyCia.Extensions

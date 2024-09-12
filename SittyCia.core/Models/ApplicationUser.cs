@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 
-namespace SittyCia.Models
+namespace SittyCia.Core.Models
 {
     public class ApplicationUser : IdentityUser
     {

@@ -1,8 +1,6 @@
-﻿
+﻿using SittyCia.Core.Models;
 
-using SittyCia.Models;
-
-namespace SittyCia.Service.IService
+namespace SittyCia.Core.Repository
 {
     public interface IJwtTokenGenerator
     {

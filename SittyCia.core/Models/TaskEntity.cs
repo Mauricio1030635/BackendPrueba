@@ -1,4 +1,4 @@
-﻿namespace SittyCia.Models
+﻿namespace SittyCia.Core.Models
 {
     public class TaskEntity
     {

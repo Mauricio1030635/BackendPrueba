@@ -1,4 +1,4 @@
-﻿namespace SittyCia.Service.IService
+﻿namespace SittyCia.Core.Repository
 {
     public interface IGenericService<T> where T : class
     {

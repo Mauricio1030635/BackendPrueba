@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using SittyCia.Models;
+using SittyCia.Core.Models;
+
 
 namespace SittyCia.Data
 {

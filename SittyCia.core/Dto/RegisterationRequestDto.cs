@@ -1,4 +1,4 @@
-﻿namespace SittyCia.Models.Dto
+﻿namespace SittyCia.Core.Dto
 {
     public class RegistrationRequestDto
     {

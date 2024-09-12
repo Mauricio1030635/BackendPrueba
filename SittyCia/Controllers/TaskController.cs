@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using SittyCia.Models;
-using SittyCia.Models.Dto;
-using SittyCia.Service.IService;
+using SittyCia.Core.Dto;
+using SittyCia.Core.Models;
+using SittyCia.Core.Repository;
+
 
 namespace SittyCia.Controllers
 {

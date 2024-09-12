@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using SittyCia.Core.Dto;
+using SittyCia.Core.Models;
+using SittyCia.Core.Repository;
 using SittyCia.Data;
-using SittyCia.Models;
-using SittyCia.Models.Dto;
-using SittyCia.Service.IService;
+
+
 
 namespace SittyCia.Service
 {
