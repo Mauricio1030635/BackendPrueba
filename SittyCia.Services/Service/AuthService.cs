@@ -93,12 +93,12 @@ namespace SittyCia.Service
                     var userToReturn = _db.ApplicationUsers.First(u => u.UserName == registrationRequestDto.Email);
                     await AssignRole(registrationRequestDto.Email, "Admin");                  
 
-                    return "If the process was executed successfully, please validate credentials";
+                    return "";
 
                 }
                 else
                 {
-                    return result.Errors.FirstOrDefault().Description;
+                    return result.Errors.FirstOrDefault().Code;
                 }
 
             }

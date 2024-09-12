@@ -12,6 +12,7 @@ namespace SittyCia.Controllers
     [ApiController]
     [Route("api/[controller]")]
     [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    [Authorize(Roles = "Admin")]
     public class TaskController : ControllerBase
     {
         private readonly ITaskService _taskService;
@@ -23,7 +24,7 @@ namespace SittyCia.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("{userId}")]
+        [HttpGet("GetTasksByUserId/{userId}")]
         public async Task<IActionResult> GetTasksByUserId(string userId)
         {
             var tasks = await _taskService.GetTasksByUserIdAsync(userId);
@@ -31,8 +32,7 @@ namespace SittyCia.Controllers
             return Ok(taskDtos);
         }
 
-        [HttpGet("{id:int}")]
-        [Authorize(Roles = "Admin")]
+        [HttpGet("GetTaskById/{id:int}")]        
         public async Task<IActionResult> GetTaskById(int id)
         {
             var task = await _taskService.GetByIdAsync(id);
