@@ -11,10 +11,16 @@ namespace SittyCia.Data
         }
 
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<TaskEntity> Tasks { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            modelBuilder.Entity<TaskEntity>()
+           .HasOne(t => t.User)
+           .WithMany(u => u.Tasks)
+           .HasForeignKey(t => t.UserId);
         }
     }
 }

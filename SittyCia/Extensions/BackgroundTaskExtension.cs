@@ -26,6 +26,10 @@ namespace SittyCia.Extensions
             services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddAutoMapper(typeof(MappingProfile));
+            services.AddScoped<ITaskService, TaskService>();
+            services.AddScoped(typeof(IGenericService<>), typeof(GenericService<>));
+
             services.AddControllers();
 
 
