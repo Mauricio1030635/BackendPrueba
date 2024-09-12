@@ -2,26 +2,29 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using SittyCia.Data;
 using SittyCia.Models;
+using SittyCia.Service.IService;
+using SittyCia.Service;
+using Microsoft.OpenApi.Models;
+using SittyCia.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
 
 
-builder.Services.AddDbContext<AppDbContext>(option =>
-{
-    option.UseSqlServer(builder.Configuration.GetConnectionString("Sql"));
+builder.Services.RegisterBackgroundTask(builder.Configuration);
+
+
+builder.Services.SwaggerExtension();
+
+
+
+builder.Services.AddCors(option => {
+    option.AddPolicy("newPolitics", app => { app.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod(); });
 });
 
-builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>()
-    .AddDefaultTokenProviders();
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
-
 
 if (app.Environment.IsDevelopment())
 {
@@ -29,6 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("newPolitics");
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();
